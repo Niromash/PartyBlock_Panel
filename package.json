@@ -1,0 +1,32 @@
+{
+  "name": "hexoganebp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node --files src/index.ts",
+    "build": "tsc -p .",
+    "buildandrun": "tsc && ts-node --files src/index.ts",
+    "start": "node dist/src/index.js"
+  },
+  "dependencies": {
+    "amqplib": "^0.7.1",
+    "fastify": "^3.14.2",
+    "fastify-decorators": "^3.9.0",
+    "fastify-sensible": "^3.1.1",
+    "fastify-socket.io": "^1.0.2",
+    "fastify-static": "^4.0.1",
+    "fluent-json-schema": "^2.0.4",
+    "path": "^0.12.7",
+    "point-of-view": "^4.14.0",
+    "tslog": "^3.2.0"
+  },
+  "devDependencies": {
+    "@types/amqplib": "^0.5.17",
+    "@types/node": "^14.14.41",
+    "@types/socket.io": "^2.1.13",
+    "cpy-cli": "^3.1.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  }
+}

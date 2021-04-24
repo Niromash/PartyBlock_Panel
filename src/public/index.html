@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HexoPartyBlock</title>
+    <link rel="stylesheet" href="/public/styles/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body style="background-color: red">
+<button onclick="userReady()" style="display: inline-block; text-align: center; top: 50%; left: 50%">Confirmer en cliquant ici</button>
+
+<div style="display: none" id="gametype">
+    <div class="content jukebox">
+        <div class="wrapper">
+            <div class="left-heavy">
+                <div class="title gray"><h2>Jukebox</h2></div>
+                <div id="jukebox">
+                    <div class="data">
+                        <h3>No server...</h3>
+                        <p>Waiting for the game to start, prepare your feet</p>
+                        <div class="volume">
+                            <h4>Volume</h4>
+                            <div class="slider-holder">
+                                <div id="slider"
+                                     class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"><span
+                                        tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"
+                                        style="left: 100%;"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="juke-color" class="color"></div>
+                </div>
+            </div>
+            <div class="right-light">
+                <div class="title yellow"><h2>Jukebox Session</h2></div>
+                <div class="session">
+                    <div class="avatar"><img src="https://cravatar.eu/avatar/Niromash_/96.png"></div>
+                    <div class="info">
+                        <h3>Niromash_</h3>
+                        <a href="/blockparty/jukebox/logout">Logout</a>
+                    </div>
+                </div>
+                <!--<div class="title blue"><h2>Thanks!</h2></div>
+                <ul class="thanks">
+                <li>
+                <p><i class="fa fa-star"></i> Villager Voice</p>
+                <a href="#">Element Animation</a>
+                </li>
+                <li>
+                <p><i class="fa fa-star"></i> Original Game</p>
+                <a href="#">DCDJ</a>
+                </li>
+                <li>
+                <p><i class="fa fa-star"></i> Song Licensing</p>
+                <a href="#">BlueMonkeyYT</a>
+                </li>
+                </ul>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+<audio id="mainAudio"></audio>
+<audio id="secondaryAudio"></audio>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="/public/scripts/script.js"></script>
+<script defer>
+    function userReady(){
+        document.querySelector('button').style.display = 'none';
+        document.body.style.backgroundColor = 'unset';
+        document.getElementById('gametype').style.display = 'unset';
+        const game = new PartyBlock('Niromash');
+        game.init();
+    }
+</script>
+</body>
+</html>
