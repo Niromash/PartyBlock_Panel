@@ -5,7 +5,7 @@ import Main from "../Main";
 export default class BlockChangeRoute extends AbstractRMQRoute {
 
     constructor() {
-        super('blockChange');
+        super('changeBlock');
     }
 
     public run(data: IBlock): any {

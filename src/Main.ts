@@ -12,6 +12,7 @@ import StopSoundRoute from "./messagingRoutes/StopSoundRoute";
 import fs from "fs";
 import {resolve} from "path";
 import AbstractSocketListener from "./socket/listeners/AbstractSocketListener";
+import BlockChangeRoute from "./messagingRoutes/BlockChangeRoute";
 
 class Main {
 
@@ -69,7 +70,8 @@ class Main {
         await this.rmqManager.registerRoutes(
             new PlaySoundRoute(),
             new PauseSoundRoute(),
-            new StopSoundRoute()
+            new StopSoundRoute(),
+            new BlockChangeRoute()
         );
 
         // Connect rabbit

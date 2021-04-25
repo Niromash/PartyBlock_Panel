@@ -2,10 +2,10 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="eea6623e-da71-48a3-bf1a-86e0771dc71d" name="perso pickle devdession">
-        <fileTransfer accessType="SFTP" host="api.picklemc.fr" port="7803" sshConfigId="d5dfde88-af43-42c4-bb9d-ee3c1fd9e6da" sshConfig="root@api.picklemc.fr:7803 password">
+      <webServer id="eea6623e-da71-48a3-bf1a-86e0771dc71d" name="perso pickle spigot">
+        <fileTransfer accessType="SFTP" host="api.picklemc.fr" port="22" sshConfigId="4e253d10-4078-4662-b743-bb9ff9f83959" sshConfig="Pickle" keyPair="true">
           <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
         </fileTransfer>
       </webServer>

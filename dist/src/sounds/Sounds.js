@@ -38,7 +38,6 @@ Sounds.THE_ARCADE_2013 = new Sounds('The Arcade 2013 - Savant.ogg');
 Sounds.THE_STANDOFF = new Sounds('The Standoff - Song written for The Hive\'s Mini Game  Block Party.ogg');
 Sounds.PIXEL_PARTY = new Sounds('Vexento - Pixel Party.ogg');
 Sounds.THIRSTY = new Sounds('Vexento - Thirsty.ogg');
-Sounds.RIDE_LIKE_THE_WIND = new Sounds('Vinter in Hollywood - Ride like the wind (official video).ogg');
 Sounds.YOU_CAN_PLAY = new Sounds('Vinter in Hollywood - You can Play (official).ogg');
 Sounds.VINYL_STOP = new Sounds('vinylstop.ogg', false);
 Sounds.KILL_ALL_DAY = new Sounds('♫  Kill All Day  REMIX by Elyssius - Minecraft Original Song.ogg');

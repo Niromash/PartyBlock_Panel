@@ -23,7 +23,6 @@ export default class Sounds {
     static readonly THE_STANDOFF  = new Sounds('The Standoff - Song written for The Hive\'s Mini Game  Block Party.ogg');
     static readonly PIXEL_PARTY  = new Sounds('Vexento - Pixel Party.ogg');
     static readonly THIRSTY  = new Sounds('Vexento - Thirsty.ogg');
-    static readonly RIDE_LIKE_THE_WIND  = new Sounds('Vinter in Hollywood - Ride like the wind (official video).ogg');
     static readonly YOU_CAN_PLAY  = new Sounds('Vinter in Hollywood - You can Play (official).ogg');
     static readonly VINYL_STOP  = new Sounds('vinylstop.ogg', false);
     static readonly KILL_ALL_DAY  = new Sounds('♫  Kill All Day  REMIX by Elyssius - Minecraft Original Song.ogg');

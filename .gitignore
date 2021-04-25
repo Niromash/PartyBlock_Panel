@@ -76,3 +76,5 @@ typings/
 .fusebox/
 dist/src/public/styles/style.css
 src/public/styles/style.css
+.idea/
+*.iml

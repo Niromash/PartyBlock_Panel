@@ -23,13 +23,6 @@
           </mappings>
         </serverdata>
       </paths>
-      <paths name="perso pickle devdession">
-        <serverdata>
-          <mappings>
-            <mapping deploy="/app/perso/test/plugins" local="$PROJECT_DIR$/../../[JAVA]/Minecraft/Projets/PartyBlock/target" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
       <paths name="perso pickle panel">
         <serverdata>
           <mappings>
@@ -38,6 +31,13 @@
           <excludedPaths>
             <excludedPath local="true" path="$PROJECT_DIR$/dist/src/public/sounds" />
           </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="perso pickle spigot">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/opt/dev/devSessions/data/niromash/test/plugins" local="$PROJECT_DIR$/../../[JAVA]/Minecraft/Projets/PartyBlock_Spigot/target" web="/" />
+          </mappings>
         </serverdata>
       </paths>
     </serverData>

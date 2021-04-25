@@ -22,6 +22,9 @@ class SocketManager {
     stop() {
         this.broadcast('stop');
     }
+    changeBlock(block) {
+        this.broadcast('block_change', block.hexaColor);
+    }
     broadcast(event, ...data) {
         for (let socket of this.sockets)
             socket.socket.emit(event, ...data);

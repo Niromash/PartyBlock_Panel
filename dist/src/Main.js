@@ -41,6 +41,7 @@ const PauseSoundRoute_1 = __importDefault(require("./messagingRoutes/PauseSoundR
 const StopSoundRoute_1 = __importDefault(require("./messagingRoutes/StopSoundRoute"));
 const fs_1 = __importDefault(require("fs"));
 const path_1 = require("path");
+const BlockChangeRoute_1 = __importDefault(require("./messagingRoutes/BlockChangeRoute"));
 class Main {
     constructor() {
         this.config = require('./storage/config/config.json');
@@ -85,7 +86,7 @@ class Main {
     start() {
         return __awaiter(this, void 0, void 0, function* () {
             // Register routes
-            yield this.rmqManager.registerRoutes(new PlaySoundRoute_1.default(), new PauseSoundRoute_1.default(), new StopSoundRoute_1.default());
+            yield this.rmqManager.registerRoutes(new PlaySoundRoute_1.default(), new PauseSoundRoute_1.default(), new StopSoundRoute_1.default(), new BlockChangeRoute_1.default());
             // Connect rabbit
             yield this.rmqManager.connect();
             // Start express server

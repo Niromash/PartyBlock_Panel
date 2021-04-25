@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/hexoganebp.iml" filepath="$PROJECT_DIR$/hexoganebp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../../[JAVA]/Minecraft/Projets/PartyBlock/partyblock-java.iml" filepath="$PROJECT_DIR$/../../[JAVA]/Minecraft/Projets/PartyBlock/partyblock-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PartyBlock_Panel.iml" filepath="$PROJECT_DIR$/PartyBlock_Panel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../[JAVA]/Minecraft/Projets/PartyBlock_Spigot/partyblock-java.iml" filepath="$PROJECT_DIR$/../../[JAVA]/Minecraft/Projets/PartyBlock_Spigot/partyblock-java.iml" />
     </modules>
   </component>
 </project>

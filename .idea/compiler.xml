@@ -11,6 +11,8 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="partyblock-java" target="8" />
+      <module name="partyblock-java (1)" target="1.5" />
+      <module name="PartyBlock_Spigot" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
