@@ -1,4 +1,6 @@
 import AbstractRMQRoute from "./AbstractRMQRoute";
+import IBlock from "../interface/rmq/IBlock";
+import Main from "../Main";
 
 export default class BlockChangeRoute extends AbstractRMQRoute {
 
@@ -6,6 +8,7 @@ export default class BlockChangeRoute extends AbstractRMQRoute {
         super('blockChange');
     }
 
-    public run(data: {}): any {
+    public run(data: IBlock): any {
+        Main.getSocketManager().changeBlock(data);
     }
 }

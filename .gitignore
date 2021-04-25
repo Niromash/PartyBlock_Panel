@@ -74,4 +74,5 @@ typings/
 
 # FuseBox cache
 .fusebox/
-style.css
+dist/src/public/styles/style.css
+src/public/styles/style.css

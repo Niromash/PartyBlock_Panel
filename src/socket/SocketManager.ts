@@ -1,5 +1,6 @@
 import type {Socket} from "socket.io";
 import Sounds from "../sounds/Sounds";
+import IBlock from "../interface/rmq/IBlock";
 
 export interface ISocket {username: string; socket: Socket}
 
@@ -32,6 +33,10 @@ export default class SocketManager {
 
     public stop(){
         this.broadcast('stop');
+    }
+
+    public changeBlock(block: IBlock){
+        this.broadcast('block_change', block.hexaColor);
     }
 
     private broadcast(event: string, ...data: any[]) {
