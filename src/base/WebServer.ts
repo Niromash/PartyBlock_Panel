@@ -2,10 +2,8 @@ import WebServerInterface, {IMiddleware} from '../interface/webServer/IWebServer
 import fastify, {FastifyInstance} from "fastify";
 import {bootstrap} from "fastify-decorators";
 import {resolve} from "path";
-import * as fs from "fs";
-import SocketManager from "../socket/SocketManager";
-import Main from "../Main";
-import AbstractSocketListener from "../socket/listeners/AbstractSocketListener";
+
+type afterFunction = (error: Error) => void;
 
 export default class WebServer {
 
@@ -13,6 +11,7 @@ export default class WebServer {
     private middlewares: IMiddleware[];
     private readonly staticFolder: { path: string, folder: string }[];
     private readonly server: FastifyInstance;
+    private after: afterFunction = error => console.error(error);
 
     constructor(options: WebServerInterface) {
         this.port = options.port;
@@ -43,6 +42,10 @@ export default class WebServer {
         return this;
     }
 
+    public setAfter(after: afterFunction){
+        this.after = after;
+    }
+
     public start(): void {
 
         if (this.middlewares) this.loadMiddlewares(this.middlewares);
@@ -50,17 +53,7 @@ export default class WebServer {
         this.server.register(bootstrap, {
             directory: resolve(__dirname, '..', `controllers`),
             mask: /Controller\./,
-        }).after(() => {
-            this.server.io.on('connection', socket => {
-                const files = fs.readdirSync(resolve(__dirname, '..', 'socket', 'listeners'));
-                for (let fileName of files) {
-                    const file = require(resolve(__dirname, '..', 'socket', 'listeners', fileName));
-                    const listener: AbstractSocketListener = new file.default();
-                    // @ts-ignore
-                    socket.on(listener.getListenerName(), (...data: any[]) => listener.run(socket, ...data));
-                }
-            })
-        })
+        }).after(this.after);
 
         this.server.listen(this.port, '0.0.0.0', (err, address) => {
             if (err) throw err;

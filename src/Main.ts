@@ -9,6 +9,9 @@ import RabbitManager from "./base/app/RabbitManager";
 import PlaySoundRoute from "./messagingRoutes/PlaySoundRoute";
 import PauseSoundRoute from "./messagingRoutes/PauseSoundRoute";
 import StopSoundRoute from "./messagingRoutes/StopSoundRoute";
+import fs from "fs";
+import {resolve} from "path";
+import AbstractSocketListener from "./socket/listeners/AbstractSocketListener";
 
 class Main {
 
@@ -39,10 +42,22 @@ class Main {
             import: import('fastify-socket.io')
         })
 
+        this.webServer.setAfter(() => {
+            this.webServer.getServer().io.on('connection', socket => {
+                const files = fs.readdirSync(resolve(__dirname, 'socket', 'listeners'));
+                for (let fileName of files) {
+                    const file = require(resolve(__dirname, 'socket', 'listeners', fileName));
+                    const listener: AbstractSocketListener = new file.default();
+                    // @ts-ignore
+                    socket.on(listener.getListenerName(), (...data: any[]) => listener.run(socket, ...data));
+                }
+            })
+        })
+
         this.logger = new Logger({
             displayFilePath: "hidden",
             displayFunctionName: false,
-            prefix: ['HexoganeBP |'],
+            prefix: ['PartyBlock |'],
             overwriteConsole: true,
             dateTimeTimezone: 'Europe/Paris',
             dateTimePattern: 'day/month/year hour:minute:second.millisecond'

@@ -33,8 +33,11 @@
       <paths name="perso pickle panel">
         <serverdata>
           <mappings>
-            <mapping deploy="/opt/dev/devSessions/data/niromash/test2" local="$PROJECT_DIR$/dist" web="/" />
+            <mapping deploy="/opt/dev/devSessions/data/niromash/test2/data" local="$PROJECT_DIR$/dist" web="/" />
           </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/dist/src/public/sounds" />
+          </excludedPaths>
         </serverdata>
       </paths>
     </serverData>

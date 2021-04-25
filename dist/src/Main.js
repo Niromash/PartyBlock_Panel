@@ -39,6 +39,8 @@ const RabbitManager_1 = __importDefault(require("./base/app/RabbitManager"));
 const PlaySoundRoute_1 = __importDefault(require("./messagingRoutes/PlaySoundRoute"));
 const PauseSoundRoute_1 = __importDefault(require("./messagingRoutes/PauseSoundRoute"));
 const StopSoundRoute_1 = __importDefault(require("./messagingRoutes/StopSoundRoute"));
+const fs_1 = __importDefault(require("fs"));
+const path_1 = require("path");
 class Main {
     constructor() {
         this.config = require('./storage/config/config.json');
@@ -60,10 +62,21 @@ class Main {
         }).addMiddleware({
             import: Promise.resolve().then(() => __importStar(require('fastify-socket.io')))
         });
+        this.webServer.setAfter(() => {
+            this.webServer.getServer().io.on('connection', socket => {
+                const files = fs_1.default.readdirSync(path_1.resolve(__dirname, 'socket', 'listeners'));
+                for (let fileName of files) {
+                    const file = require(path_1.resolve(__dirname, 'socket', 'listeners', fileName));
+                    const listener = new file.default();
+                    // @ts-ignore
+                    socket.on(listener.getListenerName(), (...data) => listener.run(socket, ...data));
+                }
+            });
+        });
         this.logger = new tslog_1.Logger({
             displayFilePath: "hidden",
             displayFunctionName: false,
-            prefix: ['HexoganeBP |'],
+            prefix: ['PartyBlock |'],
             overwriteConsole: true,
             dateTimeTimezone: 'Europe/Paris',
             dateTimePattern: 'day/month/year hour:minute:second.millisecond'
