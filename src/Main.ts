@@ -24,7 +24,7 @@ class Main {
 
     constructor() {
         this.config = require('./storage/config/config.json');
-        this.rmqManager = new RabbitManager('amqp://admin:4sx65EqUC@api.picklemc.fr:5673');
+        this.rmqManager = new RabbitManager(process.env.RABBIT_URI);
         this.socketManager = new SocketManager();
         this.webServer = new WebServer({
             port: 80,
